@@ -7,7 +7,9 @@
   "scripts": {
     "start": "node server/index.js",
     "live-reload": "nodemon server/index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "NODE_OPTIONS=--experimental-vm-modules jest --no-cache",
+    "test:watch": "LOG_DISABLE=true NODE_OPTIONS=--experimental-vm-modules jest --no-cache --watchAll",
+    "test:coverage": "LOG_DISABLE=true NODE_OPTIONS=--experimental-vm-modules jest --no-cache --coverage tests/unit"
   },
   "engines": {
     "node": "17"
@@ -16,6 +18,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "jest": "^27.5.1",
     "nodemon": "^2.0.15"
   },
   "dependencies": {
