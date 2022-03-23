@@ -147,7 +147,7 @@
     </div>
 
     <div class="audio-player">
-      <audio id="audio" preload="none" controls autoplay src="./home/audio/songs/conversation.mp3"></audio>
+      <audio id="audio" preload="none" controls autoplay></audio>
 
       <div class="player-controls">
         <div class="player__actions">
@@ -172,7 +172,13 @@
     <i class="fas fa-volume-up"></i>
     <p>Listening on Clebson Santos</p>
   </div>
-  <script src="./js/animation.js"></script>
+  <script src="./home/js/animation.js"></script>
+  <script>
+    //bypass prevent cache
+    window.onload = () => {
+      document.getElementById("audio").src = '/stream?id=' + Date.now()
+    }
+  </script>
 </body>
 
 </html>
